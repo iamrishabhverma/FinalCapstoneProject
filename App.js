@@ -11,8 +11,8 @@ const stackNavigator = createStackNavigator({
    //Signup : SignupScreen,
    //Signin: SigninScreen, 
    //Home: HomeScreen,
-   //Tabs: Tabs
-      admin:admin
+   Tabs: Tabs
+      //admin:admin
 });
 
 const App = createAppContainer(stackNavigator);
