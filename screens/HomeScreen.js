@@ -5,9 +5,14 @@ import { View } from 'react-native';
 import {Icon, Text,Card} from 'react-native-elements';
 import SearchBar from 'react-native-elements/dist/searchbar/SearchBar-ios';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
-import { Header } from 'react-native/Libraries/NewAppScreen';
+import admin from '../admin/admin';
 
-const HomeScreen = () => {
+
+
+
+const HomeScreen = ({navigation}) => {
+    
+    
 
     return(
         
@@ -17,7 +22,7 @@ const HomeScreen = () => {
             <Text style={styles.container}>Let Us make it special</Text>
             <Text style={styles.container}> Celebrate with Us</Text>
             <View style={styles.container2}>
-        <Button style={styles.quote} title="Request a Quote">Request a Quote</Button>
+        <Button style={styles.quote} title="Request a Quote" >Request a Quote</Button>
         
         </View>
         <SafeAreaView>
@@ -41,7 +46,7 @@ const HomeScreen = () => {
         </ScrollView>
         <TextInput style={styles.searchbar} placeholder='   Search here...'></TextInput>
         
-        <Text style={{fontFamily: 'Calibri', fontStyle: 'Bold',color:'blue',fontSize:20,marginHorizontal:50,alignItems:'center'}}>Our Halls</Text>
+        <Text style={{ fontStyle: 'Bold',color:'blue',fontSize:20,marginHorizontal:50,alignItems:'center'}}>Our Halls</Text>
        <ScrollView style={{shadowOpacity:10,shadowColor:'#F1F1F1',shadowRadius:20,}} >
             
        <Card style={styles.card}>
@@ -61,7 +66,8 @@ const HomeScreen = () => {
   <Button
       
       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-      title='View' />
+      title='View'
+      onPress={() => navigation.navigate('Offers')} />
 </Card>
 
 <Card style={styles.card}>

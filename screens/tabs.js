@@ -9,6 +9,9 @@ import { View,Image,Text } from 'react-native';
 import { StyleSheet } from 'react-native';
 import profile from '../tabs/profile';
 import offers from '../tabs/offers';
+import admin from '../admin/admin';
+
+
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
@@ -51,8 +54,15 @@ const Tabs = () => {
             </View>
         )          
   }}/>
+  <Tab.Screen name="admin" component={admin} 
+      />
     </Tab.Navigator>
+    
   </NavigationContainer>
+  
+
+  
   )
+  
 }
 export default Tabs;

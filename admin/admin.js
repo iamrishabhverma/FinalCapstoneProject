@@ -12,9 +12,12 @@ const admin = () => {
    ]
   return (
     
-      <View style={styles.card}>
+      <View style={styles.card} >
       
+      
+
       </View>
+      
     
   )
 }

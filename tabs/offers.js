@@ -4,7 +4,7 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler';
 import MarqueeText from 'react-native-marquee';
 
-const profile = () => {
+const profile = ({navigation}) => {
 
   const users = [
     {
@@ -33,8 +33,10 @@ const profile = () => {
   <Button
       
       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-      title='Get 80% off on 3rd corporate meetings' />
+      title='Get 80% off on 3rd corporate meetings'
+      onPress={() => navigation.navigate('admin')}  />
 </Card>
+
 <Card style={styles.card}>
   <Card.Title>STAFF DISCOUNT</Card.Title>
   <Card.Divider/>
