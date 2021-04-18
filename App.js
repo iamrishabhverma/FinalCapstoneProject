@@ -9,10 +9,10 @@ import admin from './admin/admin';
 
 const stackNavigator = createStackNavigator({
    //Signup : SignupScreen,
-   //Signin: SigninScreen,
+   //Signin: SigninScreen, 
    //Home: HomeScreen,
-   Tabs: Tabs
-      //admin:admin
+   //Tabs: Tabs
+      admin:admin
 });
 
 const App = createAppContainer(stackNavigator);
