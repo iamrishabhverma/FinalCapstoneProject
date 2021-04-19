@@ -70,7 +70,7 @@ function HomeScreen({ navigation }) {
       
       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
       title='View'
-      onPress={() => navigation.navigate('Offers')} />
+      onPress={() => navigation.navigate('Details')} />
 </Card>
 
 <Card style={styles.card}>
@@ -149,9 +149,52 @@ function HomeScreen({ navigation }) {
 }
 function DetailsScreen() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-      </View>
+        <ScrollView >
+        <Card style={styles.card}>
+            <Card.Title>NORTH HALL</Card.Title>
+            <ScrollView style={{ height: 300, }} >
+                <Card.Image style={{ marginBottom: 10 }} source={require('../images/bh1.png')}>
+                </Card.Image>
+                <Card.Image style={{ marginBottom: 10 }} source={require('../images/bh2.png')}>
+                </Card.Image>
+                <Card.Image style={{ marginBottom: 10 }} source={require('../images/bh3.png')}>
+                </Card.Image>
+                <Card.Image style={{ marginBottom: 10 }} source={require('../images/bh4.png')}>
+                </Card.Image>
+            </ScrollView>
+            <Card.Divider />
+            <Text style={{ marginBottom: 10 }}>
+                <Text style={{ fontWeight: 'bold' }}> Starting from $500/Birthday Party With Decoration and Cake</Text>
+            </Text>
+            <Text style={{ marginBottom: 10 }}>
+                <Text style={{ fontWeight: 'bold' }}> Starting from $300/Birthday Party Without Decoration and Cake </Text>
+            </Text>
+            <Text style={{ marginBottom: 10 }}>
+                <Text style={{ fontWeight: 'bold' }}> Starting from $700/Birthday Party With Decoration,Cake,Games,Food</Text>
+            </Text>
+            <Card.Divider />
+            <Text style={{ marginBottom: 10 }}>
+                <Text style={{ fontWeight: 'bold' }}>North Hall for: </Text> <Text style={{ fontStyle: 'italic' }}>          BirthDay Party</Text>
+            </Text>
+            <Card.Divider />
+            <Text style={{ marginBottom: 10 }}>
+                <Text style={{ fontWeight: 'bold' }}>Capacity: </Text> <Text style={{ fontStyle: 'italic' }}>             Space for 50 people</Text>
+            </Text>
+            <Card.Divider />
+            <Text style={{ marginBottom: 10 }}>
+                <Text style={{ fontWeight: 'bold' }}>Special Arrangement for Sitting: </Text> <Text style={{ fontStyle: 'italic' }}>         No</Text>
+            </Text>
+            <Card.Divider />
+            <Button
+
+                buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
+                title='Book Now' />
+        </Card>
+        <Card.Divider />
+        <Card.Divider />
+        <Card.Divider />
+        <Card.Divider />
+    </ScrollView>
     );
   }
 
