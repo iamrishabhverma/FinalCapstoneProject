@@ -6,11 +6,13 @@ import {Icon, Text,Card} from 'react-native-elements';
 import SearchBar from 'react-native-elements/dist/searchbar/SearchBar-ios';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import admin from '../admin/admin';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import Tabs from '../screens/tabs';
 
 
-
-
-const HomeScreen = ({navigation}) => {
+function HomeScreen({ navigation }) {
     
     
 
@@ -22,7 +24,8 @@ const HomeScreen = ({navigation}) => {
             <Text style={styles.container}>Let Us make it special</Text>
             <Text style={styles.container}> Celebrate with Us</Text>
             <View style={styles.container2}>
-        <Button style={styles.quote} title="Request a Quote" >Request a Quote</Button>
+        <Button style={styles.quote} title="Request a Quote" 
+        onPress={() => navigation.navigate('Details')}>Request a Quote</Button>
         
         </View>
         <SafeAreaView>
@@ -135,13 +138,38 @@ const HomeScreen = ({navigation}) => {
 
       </ScrollView>
       
+      
+      
+    
     
      </ScrollView>
      
       );
     
 }
-export default HomeScreen;
+function DetailsScreen() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+      </View>
+    );
+  }
+
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+function App() {
+  return (
+    <NavigationContainer independent={true}>
+      <Stack.Navigator >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="tabs" component={Tabs}/>
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
 
 const styles = StyleSheet.create({
    container: {

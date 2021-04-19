@@ -5,18 +5,23 @@ import SignupScreen from '../screens/SignupScreen';
 import SigninScreen from '../screens/SigninScreen';
 import {NavigationContainer} from '@react-navigation/native';
 
+import { createStackNavigator } from '@react-navigation/stack';
+
 import { View,Image,Text } from 'react-native';
 import { StyleSheet } from 'react-native';
 import profile from '../tabs/profile';
 import offers from '../tabs/offers';
 import admin from '../admin/admin';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
-
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-const Tabs = () => {
+function Tabs({ navigation }){
   return (
-    <NavigationContainer>
+      
+    <NavigationContainer independent={true}>
+       
     <Tab.Navigator  
     tabBarOptions={{style:{
         backgroundColor:'#fff',
@@ -27,7 +32,7 @@ const Tabs = () => {
         borderRadius:20,
         }}}
             >
-      <Tab.Screen name="HOME" component={HomeScreen} 
+      <Tab.Screen name="Home" component={HomeScreen} 
       options={{
             tabBarIcon: ({focused}) => (
                 <View>
@@ -54,15 +59,26 @@ const Tabs = () => {
             </View>
         )          
   }}/>
-  <Tab.Screen name="admin" component={admin} 
-      />
+  
     </Tab.Navigator>
     
+    
+    
   </NavigationContainer>
+ 
+  
   
 
   
   )
   
 }
+
+function DetailsScreen() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+      </View>
+    );
+  }
 export default Tabs;
