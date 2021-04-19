@@ -8,12 +8,12 @@ import Tabs from './screens/tabs';
 import admin from './admin/admin';
 
 const stackNavigator = createStackNavigator({
-   //Signup : SignupScreen,
-   //Signin: SigninScreen, 
+  Signup : SignupScreen,
+   Signin: SigninScreen, 
    Tabs: Tabs,
   //Home: HomeScreen,
   
-   admin: admin
+   //admin: admin
 });
 
 const App = createAppContainer(stackNavigator);

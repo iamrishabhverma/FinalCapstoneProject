@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View,StyleSheet,Image } from 'react-native';
+import {ScrollView, View,StyleSheet,Image } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
 import firebase from '../firebase/fire';
@@ -20,7 +20,7 @@ const SigninScreen = ({navigation})=>{
 
     }
     return <>
-    <View style={styles.signIn}>
+    <ScrollView style={styles.signIn}>
         <Image style={styles.img} source={require('../icons/sign-in.png')} />
         <Input
             label="Username"
@@ -47,7 +47,7 @@ const SigninScreen = ({navigation})=>{
         <TouchableOpacity onPress={() => navigation.navigate('Tabs')}>
             <Text style={{width:300,marginLeft:22}}>Don't have an account? Sign Up</Text>
         </TouchableOpacity>
-        </View>
+        </ScrollView>
     </>
     
 };

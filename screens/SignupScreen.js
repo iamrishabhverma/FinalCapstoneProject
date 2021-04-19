@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View,StyleSheet } from 'react-native';
+import { ScrollView,View,StyleSheet } from 'react-native';
 import { ImageBackground } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { Button, Input, Text,Image } from 'react-native-elements';
@@ -24,7 +24,7 @@ const SignupScreen = ({ navigation }) => {
 
     }
     return <>
-    <View>
+    <ScrollView>
     
     <View style={styles.signUp}>
 
@@ -63,7 +63,7 @@ const SignupScreen = ({ navigation }) => {
         </TouchableOpacity>
         
         </View>
-        </View>
+        </ScrollView>
     </>
     
 };

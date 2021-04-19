@@ -13,13 +13,14 @@ import profile from '../tabs/profile';
 import offers from '../tabs/offers';
 import admin from '../admin/admin';
 import { ScrollView } from 'react-native-gesture-handler';
+import kids from './kids';
 
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 function Tabs({ navigation }){
   return (
-      
+    
     <NavigationContainer independent={true}>
        
     <Tab.Navigator  
@@ -48,6 +49,16 @@ function Tabs({ navigation }){
                 <Image style={{height:25,width:25}} source={require('../icons/discount.png')} />
                 
             </View>
+            
+        )          
+  }}/>
+  <Tab.Screen name="Kids" component={kids} 
+      options={{
+        tabBarIcon: ({}) => (
+            <View>
+                <Image style={{height:25,width:25}} source={require('../icons/profile.png')} />
+                
+            </View>
         )          
   }}/>
       <Tab.Screen name="Profile" component={profile} 
@@ -59,6 +70,7 @@ function Tabs({ navigation }){
             </View>
         )          
   }}/>
+  
   
     </Tab.Navigator>
     
