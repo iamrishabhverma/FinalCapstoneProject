@@ -1,14 +1,16 @@
 {
   "expo": {
-    "name": "react-auth",
-    "slug": "react-auth",
+    "name": "Team Earth",
+    "slug": "Team Earth",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./icons/home.png",
+    "icon": "./icons/splash.png",
     "splash": {
-      "image": "./icons/home.png",
+      "image": "./icons/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "grey"
+      
+      
       
     },
     "updates": {
