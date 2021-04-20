@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView,View,StyleSheet } from 'react-native';
+import { ScrollView,View,StyleSheet, Picker } from 'react-native';
 import { ImageBackground } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { Button, Input, Text,Image } from 'react-native-elements';
