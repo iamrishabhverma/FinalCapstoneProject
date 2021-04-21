@@ -1,4 +1,5 @@
-import React from 'react';
+//import React, { Component } from 'react';
+import React, { useState } from 'react'
 import { ImageBackground, SafeAreaView } from 'react-native';
 import { Image, Button, StyleSheet } from 'react-native';
 import { View } from 'react-native';
@@ -10,6 +11,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Tabs from '../screens/tabs';
+import { Input } from 'react-native-elements/dist/input/Input';
+import { Picker } from '@react-native-picker/picker';
+import RNPickerSelect from 'react-native-picker-select';
+import DatePicker from 'react-native-date-picker';
+
+
+
 
 
 function HomeScreen({ navigation }) {
@@ -25,7 +33,7 @@ function HomeScreen({ navigation }) {
                 <Text style={styles.container}> Celebrate with Us</Text>
                 <View style={styles.container2}>
                     <Button style={styles.quote} title="Request a Quote"
-                        onPress={() => navigation.navigate('Booking North Hall')}>Request a Quote</Button>
+                        onPress={() => navigation.navigate('quote')}>Request a Quote</Button>
 
                 </View>
                 </ImageBackground>
@@ -358,8 +366,6 @@ function WestHall() {
 
 
 function NBooking() {
-    
- 
     return (
         <ScrollView>
             <View style={styles.inputContainer}>
@@ -385,6 +391,150 @@ function NBooking() {
     );
 }
 
+function quoteRequest() {
+
+    const [date, setDate] = useState(new Date());
+    
+    
+    return (
+
+        <ScrollView>
+             <View style={styles.inputContainer}>
+        <Icon  name='user' type='font-awesome' color='blue' />
+            <Text style={{fontSize: 30,textAlign:"center"}}> Your Information</Text>
+            <TextInput
+                style={styles.textInput}
+                placeholder="Your Name"
+                maxLength={20}
+            />
+            <TextInput
+                style={styles.textInput}
+                placeholder="Mobile Number"
+                maxLength={20}
+            />
+            <TextInput
+                style={styles.textInput}
+                placeholder="Your Email ID"
+                maxLength={20}
+            />
+            
+        <ScrollView horizontal={true}>
+        <Text >Event: </Text>
+         <RNPickerSelect
+         
+          placeholder={{label: "Select Event Type..."}} onValueChange={(value) => console.log(value)}
+            items={[
+                { label: 'Wedding', value: 'wedding' },
+                { label: 'Birthday', value: 'birthday' },
+                { label: 'Gala Dinner', value: 'gala_dinner' },
+                { label: 'Musical Event', value: 'musical_event' },
+                { label: 'Seminar', value: 'seminar' },
+                { label: 'Corporate Party', value: 'corp' },
+                { label: 'Corporate Meeting', value: 'corp_meet' },
+                { label: 'Corporate Anniversery', value: 'corp_anni' },
+
+            ]}
+        />
+        <Text >Hall Type: </Text>
+        <RNPickerSelect
+         
+         placeholder={{label: "Select Event Type..."}} onValueChange={(value) => console.log(value)}
+           items={[
+               { label: 'North Hall', value: 'wedding' },
+               { label: 'South Hall', value: 'birthday' },
+               { label: 'West Hall', value: 'gala_dinner' },
+               { label: 'East Hall', value: 'musical_event' },
+               
+
+           ]}
+       />
+       </ScrollView>
+       
+        
+        
+        <ScrollView horizontal={true}>
+       <TextInput
+                style={styles.textInput}
+                placeholder="Minimun"
+                maxLength={20}
+            />
+       
+        <TextInput
+                style={styles.textInput}
+                placeholder="Maximum"
+                maxLength={20}
+            />
+          
+            </ScrollView>
+            <Button style={{margin:60,padding:30}}     title="Request a Quote" />
+            </View>
+            <Text h2 style={{margin:60,}}>Let us know How was your Experience!!!!</Text>
+            <TextInput
+                style={styles.textInput}
+                placeholder="Subject"
+                maxLength={20}
+            />
+       
+        <TextInput
+                style={styles.textInput}
+                placeholder="Body"
+                numberOfLines= {20}
+            />
+            <Text>Terms and Conditions Apply</Text>
+            <Text>
+            57 packages are looking for funding
+  run `npm fund` for details57 packages are looking for funding
+  run `npm fund` for details
+  57 packages are looking for funding
+  run `npm fund` for details
+  57 packages are looking for funding
+  run `npm fund` for details
+  57 packages are looking for funding
+  run `npm fund` for details
+  57 packages are looking for funding
+  run `npm fund` for details
+  v
+  57 packages are looking for funding
+  run `npm fund` for details7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+  7 packages are looking for funding
+  run `npm fund` for details
+
+            </Text>
+            
+        
+    </ScrollView>
+      );
+    
+}
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -399,12 +549,13 @@ function App() {
                 <Stack.Screen name="East" component={EastHall} />
                 <Stack.Screen name="West" component={WestHall} />
                 <Stack.Screen name="Booking North Hall" component={NBooking} />
+                <Stack.Screen name="quote" component={quoteRequest} />
             </Stack.Navigator>
         </NavigationContainer>
     );
 }
 
-export default App;
+export default App ;
 
 const styles = StyleSheet.create({
     container: {
@@ -493,6 +644,11 @@ const styles = StyleSheet.create({
         fontSize: 25,
         paddingLeft: 20,
         paddingRight: 20
-    }
+    },
+    signIn: {
+        backgroundColor: '#F1F1F1',
+        margin: 35,
+        marginTop:50,
+         },
 
 });
