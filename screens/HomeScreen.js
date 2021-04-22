@@ -2,7 +2,8 @@
 import React, { useState } from 'react'
 import { ImageBackground, SafeAreaView } from 'react-native';
 import { Image, Button, StyleSheet } from 'react-native';
-import { View } from 'react-native';
+import { View,Linking } from 'react-native';
+import {Form} from 'reactstrap';
 import { Icon, Text, Card } from 'react-native-elements';
 import SearchBar from 'react-native-elements/dist/searchbar/SearchBar-ios';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
@@ -393,7 +394,18 @@ function NBooking() {
 
 function quoteRequest() {
 
-    const [date, setDate] = useState(new Date());
+    const [Id,setId] = React.useState();
+    const [Name,setName] = React.useState();
+    const [Position,setPosition] = React.useState();
+    const [users,setUser] = React.useState();
+
+    const saveUsers= () => {
+        alert('Thank You! ' + Name + ' for requesting a quote. We will provide your further details as soon as we posibly can.');
+    }
+    const deleteUsers= () => {
+        alert('delete');
+    }
+   
     
     
     return (
@@ -402,23 +414,33 @@ function quoteRequest() {
              <View style={styles.inputContainer}>
         <Icon  name='user' type='font-awesome' color='blue' />
             <Text style={{fontSize: 30,textAlign:"center"}}> Your Information</Text>
+            
             <TextInput
-                style={styles.textInput}
+                //style={styles.textInput}
                 placeholder="Your Name"
                 maxLength={20}
+                value={Name}
+                onChangeText={(text) =>setName(text)}
             />
+            <ScrollView style={{textAlign: "center"}} horizontal={true}>
             <TextInput
-                style={styles.textInput}
+                style={{textAlign: "center"}}
                 placeholder="Mobile Number"
                 maxLength={20}
-            />
-            <TextInput
-                style={styles.textInput}
-                placeholder="Your Email ID"
-                maxLength={20}
+                value={Position}
+                onChangeText={(text) =>setPosition(text)}
             />
             
-        <ScrollView horizontal={true}>
+            </ScrollView>
+            <ScrollView horizontal={true}>
+            <Text>Your Email: </Text>
+            <TextInput
+                
+                 placeholder="Your Email ID"
+                maxLength={20}
+            />
+            </ScrollView>
+        <ScrollView>
         <Text >Event: </Text>
          <RNPickerSelect
          
@@ -453,20 +475,27 @@ function quoteRequest() {
         
         
         <ScrollView horizontal={true}>
+            <Text>Guests expected: </Text>
        <TextInput
-                style={styles.textInput}
+                style={{marginLeft:20}}
                 placeholder="Minimun"
                 maxLength={20}
             />
-       
+       <Text>  -    </Text>
         <TextInput
-                style={styles.textInput}
+                style={{marginLeft:5}}
                 placeholder="Maximum"
                 maxLength={20}
             />
+           
           
             </ScrollView>
-            <Button style={{margin:60,padding:30}}     title="Request a Quote" />
+            <TextInput
+           
+           placeholder="Comments"
+           maxLength={1000}/>
+            <Button style={{padding:30,marginTop:100}}     title="Request a Quote"  onPress={saveUsers}  />
+            
             </View>
             <Text h2 style={{margin:60,}}>Let us know How was your Experience!!!!</Text>
             <TextInput

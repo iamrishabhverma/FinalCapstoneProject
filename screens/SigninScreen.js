@@ -71,3 +71,41 @@ const styles = StyleSheet.create({
       marginBottom: 100,
      },     
    });
+
+
+
+/*
+    const submitUser = (Id,Name,Position)=>{
+return new Promise(function(resolve,reject){
+    let key;
+    if(Id != null){
+        key = database().ref()
+        .push().key;
+    }
+    let dataToSave = {
+        Id: key,
+        Name: Name,
+        Position,
+    };
+    database()
+    .ref('users')
+    .update(dataToSave)
+    .then(snapshot => {
+        resolve(snapshot);
+    } )
+    .catch(err =>{
+        reject(err);
+    });
+});
+    };
+
+    const saveUsers= () => {
+        submitUser(Id, Name, Position).then(()=>{
+                setId(null);
+                setName('');
+                setPosition('');
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+    */
