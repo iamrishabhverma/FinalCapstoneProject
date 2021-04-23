@@ -30,8 +30,10 @@ function HomeScreen({ navigation }) {
         <ScrollView style={{ backgroundColor: '#fff' }}>
             <ScrollView showsVerticalScrollIndicator style={styles.container} >
             <ImageBackground style={{width:400,height:700}} source={require('../images/party.png')} >
+                <View style={{marginBottom:140,}}>
                 <Text style={styles.container}>Let Us make it special</Text>
                 <Text style={styles.container}> Celebrate with Us</Text>
+                </View>
                 <View style={styles.container2}>
                     <Button style={styles.quote} title="Request a Quote"
                         onPress={() => navigation.navigate('quote')}>Request a Quote</Button>
@@ -40,7 +42,7 @@ function HomeScreen({ navigation }) {
                 </ImageBackground>
                 
 
-                <Text style={{ fontFamily: 'DelaGothicOneRegular', fontStyle: 'italic', color: 'blue', fontSize: 20, marginHorizontal: 50, }}>Occasions we offer</Text>
+                <Text style={{ fontFamily:'DelaGothicOne-Regular' , fontStyle: 'italic', color: 'blue', fontSize: 20, marginTop:20,alignContent:'center', }}>Occasions we offer</Text>
                 <ScrollView scrollEventThrottle={100} style={styles.occasions} horizontal={true} >
 
                     <Image style={styles.wall} source={require('../images/wedding.png')} />
@@ -976,10 +978,12 @@ const styles = StyleSheet.create({
     container: {
         //flex: 1,
         fontWeight: 'bold',
-
+        fontFamily:'Gill Sans',
         fontSize: 35,
         borderRadius: 2,
         color: '#2125F5',
+        elevation:3,
+        
 
 
     },

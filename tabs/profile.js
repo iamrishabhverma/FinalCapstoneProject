@@ -5,12 +5,7 @@ import { TextInput } from 'react-native-gesture-handler';
 
 const profile = () => {
 
-  const users = [
-    {
-      // name: 'brynn',
-      // avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
-    },
-   ]
+ 
   return (
     
       <View style={styles.container} >

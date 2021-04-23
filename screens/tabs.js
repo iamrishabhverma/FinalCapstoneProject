@@ -4,6 +4,7 @@ import HomeScreen from '../screens/HomeScreen';
 import SignupScreen from '../screens/SignupScreen';
 import SigninScreen from '../screens/SigninScreen';
 import {NavigationContainer} from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -15,13 +16,17 @@ import admin from '../admin/admin';
 import { ScrollView } from 'react-native-gesture-handler';
 import kids from './kids';
 
-
+const drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 function Tabs({ navigation }){
   return (
     
+
+    
+
     <NavigationContainer  independent={true}>
+       
        
     <Tab.Navigator  
     tabBarOptions={{style:{
