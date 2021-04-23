@@ -21,13 +21,13 @@ const Tab = createBottomTabNavigator();
 function Tabs({ navigation }){
   return (
     
-    <NavigationContainer independent={true}>
+    <NavigationContainer  independent={true}>
        
     <Tab.Navigator  
     tabBarOptions={{style:{
         backgroundColor:'#fff',
-        elevation:2,position:'absolute',
-        bottom:20,
+        position:'absolute',
+        bottom:10,
         left:10,
         right:10,
         borderRadius:20,
@@ -56,7 +56,7 @@ function Tabs({ navigation }){
       options={{
         tabBarIcon: ({}) => (
             <View>
-                <Image style={{height:25,width:25}} source={require('../icons/profile.png')} />
+                <Image style={{height:25,width:25}} source={require('../icons/kids.png')} />
                 
             </View>
         )          
@@ -79,18 +79,11 @@ function Tabs({ navigation }){
   </NavigationContainer>
  
   
-  
 
   
   )
   
 }
 
-function DetailsScreen() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-      </View>
-    );
-  }
+
 export default Tabs;

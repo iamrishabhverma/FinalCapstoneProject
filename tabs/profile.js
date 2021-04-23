@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image,StyleSheet } from 'react-native'
 import { Card, ListItem, Button, Icon} from 'react-native-elements'
+import { TextInput } from 'react-native-gesture-handler';
 
 const profile = () => {
 
@@ -16,11 +17,11 @@ const profile = () => {
       
         <View style={styles.header}>
             <View style={styles.headerContent}>
-                <Image style={styles.avatar}
-                  source={{uri:'https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/User-icon.png'}}/>
-
+                 <Image style={{height:200,width:200,borderRadius:60}} source={require('../icons/profile.jpeg')} />
+                
+                  
                 <Text style={styles.name}>Rishabh Verma </Text>
-                <Text style={styles.userInfo}> </Text>
+                <Text style={styles.userInfo}></Text>
                 <Text style={styles.userInfo}> </Text>
             </View>
 
@@ -31,6 +32,8 @@ const profile = () => {
               </View>
               <View style={styles.infoContent}>
                 <Text style={styles.info}>Home Address</Text>
+                <TextInput style={styles.inn}
+                placeholder="Etobicoke,ON,M9W1N1"></TextInput>
                 
               </View>
             </View>
@@ -41,6 +44,7 @@ const profile = () => {
               </View>
               <View style={styles.infoContent}>
                 <Text style={styles.info}>Phone</Text>
+                <TextInput style={styles.inn}>1112224444</TextInput>
               </View>
             </View>
 
@@ -50,9 +54,10 @@ const profile = () => {
               </View>
               <View style={styles.infoContent}>
                 <Text style={styles.info} >Email</Text>
+                <TextInput style={styles.inn}>management@teamearth.com</TextInput>
               </View>
             </View>
-
+          <Text style={{opacity:0.50,paddingTop:70}}>Copyright@Team Earth 2021</Text>
            
       </View>
       </View>
@@ -122,5 +127,12 @@ header:{
     marginTop:20,
     color: "#FFFFFF",
     
+  },
+  inn:{
+    textDecorationLine:'underline',
+    backgroundColor:"#ECF1F0",
+    width:150,
+    height:30,
+    alignContent:'center',
   }
 });

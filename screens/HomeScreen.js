@@ -15,7 +15,7 @@ import Tabs from '../screens/tabs';
 import { Input } from 'react-native-elements/dist/input/Input';
 import { Picker } from '@react-native-picker/picker';
 import RNPickerSelect from 'react-native-picker-select';
-import DatePicker from 'react-native-date-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 
@@ -51,8 +51,8 @@ function HomeScreen({ navigation }) {
                         <Image style={styles.wall} source={require('../images/wh1.png')} />
                         <Image style={styles.wall} source={require('../images/sh1.png')} />
                     </ScrollView>
-                    <Image style={styles.wall} source={require('../images/babyshower.png')} />
-                    <Image style={styles.wall} source={require('../images/bh1.png')} />
+                    
+                    <Image  style={styles.wall} source={require('../images/bh1.png')} />
                     <Image style={styles.wall} source={require('../images/eh1.png')} />
                 </ScrollView>
                 <TextInput style={styles.searchbar} placeholder='   Search here...'></TextInput>
@@ -98,7 +98,7 @@ function HomeScreen({ navigation }) {
                         <Button
 
                             buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                            title='View' onPress={() => navigation.navigate('South')} />
+                            title='Book Now' onPress={() => navigation.navigate('South')} />
                     </Card>
 
                     <Card style={styles.card}>
@@ -118,7 +118,7 @@ function HomeScreen({ navigation }) {
                         <Button
 
                             buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                            title='View' onPress={() => navigation.navigate('West')} />
+                            title='Book Now' onPress={() => navigation.navigate('West')} />
                     </Card>
 
                     <Card style={styles.card}>
@@ -138,7 +138,7 @@ function HomeScreen({ navigation }) {
                         <Button
 
                             buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                            title='View' onPress={() => navigation.navigate('East')} />
+                            title='Book Now' onPress={() => navigation.navigate('East')} />
                         <Card.Divider />
                         <Card.Divider />
                         <Card.Divider />
@@ -367,14 +367,270 @@ function WestHall() {
 
 
 function NBooking() {
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+    const [Name,setName] = React.useState();
+  
+    const onChange = (event, selectedDate) => {
+      const currentDate = selectedDate || date;
+      setShow(Platform.OS === 'ios');
+      setDate(currentDate);
+    };
+  
+    const showMode = (currentMode) => {
+      setShow(true);
+      setMode(currentMode);
+    };
+  
+    const showDatepicker = () => {
+      showMode('date');
+    };
+  
+    
+    const saveUsers= () => {
+      alert('Thank You! ' + Name + ' your booking for North hall is confirmed on ' + date);
+  }
+   
+  const check= () => {
+      alert('Congradulations! ' + Name + ' North hall is avilable.... for ' + date);
+  }
+      return (
+          <ScrollView>
+          <Icon  name='gift' type='font-awesome' color='#00FFD1' size="70"/>
+          <Text style={{fontSize: 30,textAlign:"center"}}> North hall Booking</Text>
+          <ScrollView>
+              <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Your First Name"
+                maxLength={20}
+                value={Name}
+                onChangeText={(text) =>setName(text)}
+            />
+                  <TextInput
+                      style={styles.textInput}
+                      placeholder="Your Last name"
+                      maxLength={20}
+                  />
+                  <TextInput
+                      style={styles.textInput}
+                      placeholder="Your Email"
+                      maxLength={20}
+                  />
+                  <Text style={styles.textInput} >Event type:  </Text>
+          <RNPickerSelect
+           
+           placeholder={{label: "Select Event Type..."}} onValueChange={(value) => console.log(value)}
+             items={[
+                 { label: 'Wedding', value: 'wedding' },
+                 { label: 'Reception', value: 'birthday' },
+                 { label: 'Engagement', value: 'gala_dinner' },
+                 { label: 'Baby Shower', value: 'musical_event' },
+                 { label: 'Birthday Party', value: 'musical_event' },
+                 
+  
+             ]}
+  
+         />
+         <Button onPress={showDatepicker} title="Date: " />
+        
+        {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={mode}
+            is24Hour={true}
+            display="default"
+            onChange={onChange}
+          />
+          
+        )}
+        <ScrollView style={{alignContent:'center'}} >
+        <Button style={{backgroundColor:'green'}}      title="Check availaibilty"  onPress={check}  />
+       
+        </ScrollView>
+        <View style={styles.container2}>
+                      
+                      <Button style={styles.quote} title="Book Hall"  onPress={saveUsers}  />
+                  </View>
+        
+      </View>
+  
+      <Card style={styles.card} >
+                          <Card.Title>Previous Expreiences</Card.Title>
+                          <Card.Divider />
+                          <Text style={{ marginBottom: 10 }}>
+                              <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Some memories from recent hostings</Text> <Text style={{ fontStyle: 'italic', fontSize: 20 }}>Wedding functions</Text>
+                          </Text>
+                          <ScrollView style={{ height: 400, }} >
+                              <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh1.png')}>
+                              </Card.Image>
+                              <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh2.png')}>
+                              </Card.Image>
+                              <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh3.png')}>
+                              </Card.Image>
+                          </ScrollView>
+                      </Card>
+              
+          </ScrollView>
+          </ScrollView>
+      );
+  }
+
+function SBooking() {
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+    const [Name,setName] = React.useState();
+  
+    const onChange = (event, selectedDate) => {
+      const currentDate = selectedDate || date;
+      setShow(Platform.OS === 'ios');
+      setDate(currentDate);
+    };
+  
+    const showMode = (currentMode) => {
+      setShow(true);
+      setMode(currentMode);
+    };
+  
+    const showDatepicker = () => {
+      showMode('date');
+    };
+  
+    
+    const saveUsers= () => {
+      alert('Thank You! ' + Name + ' your booking for South hall is confirmed on ' + date);
+  }
+   
+  const check= () => {
+      alert('Congradulations! ' + Name + ' South hall is avilable.... for ' + date);
+  }
+      return (
+          <ScrollView>
+          <Icon  name='briefcase' type='font-awesome' color='blue' size="70"/>
+          <Text style={{fontSize: 30,textAlign:"center"}}> South hall Booking</Text>
+          <ScrollView>
+              <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Your First Name"
+                maxLength={20}
+                value={Name}
+                onChangeText={(text) =>setName(text)}
+            />
+                  <TextInput
+                      style={styles.textInput}
+                      placeholder="Your Last name"
+                      maxLength={20}
+                  />
+                  <TextInput
+                      style={styles.textInput}
+                      placeholder="Your Email"
+                      maxLength={20}
+                  />
+                  <Text style={styles.textInput} >Hall Type: </Text>
+          <RNPickerSelect
+           
+           placeholder={{label: "Select Event Type..."}} onValueChange={(value) => console.log(value)}
+             items={[
+                 { label: 'Corporate Meeting', value: 'wedding' },
+                 { label: 'Seminar', value: 'birthday' },
+                 { label: 'Corporate Anniversary', value: 'gala_dinner' },
+                 { label: 'Musical Event', value: 'musical_event' },
+                 
+  
+             ]}
+  
+         />
+         <Button onPress={showDatepicker} title="Date: " />
+        
+        {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={mode}
+            is24Hour={true}
+            display="default"
+            onChange={onChange}
+          />
+          
+        )}
+        <ScrollView style={{alignContent:'center'}} >
+        <Button style={{backgroundColor:'green'}}      title="Check availaibilty"  onPress={check}  />
+       
+        </ScrollView>
+        <View style={styles.container2}>
+                      
+                      <Button style={styles.quote} title="Book Hall"  onPress={saveUsers}  />
+                  </View>
+        
+      </View>
+  
+      <Card style={styles.card} >
+                          <Card.Title>Previous Expreiences</Card.Title>
+                          <Card.Divider />
+                          <Text style={{ marginBottom: 10 }}>
+                              <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Some memories from recent hostings</Text> <Text style={{ fontStyle: 'italic', fontSize: 20 }}>Wedding functions</Text>
+                          </Text>
+                          <ScrollView style={{ height: 400, }} >
+                              <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh1.png')}>
+                              </Card.Image>
+                              <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh2.png')}>
+                              </Card.Image>
+                              <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh3.png')}>
+                              </Card.Image>
+                          </ScrollView>
+                      </Card>
+              
+          </ScrollView>
+          </ScrollView>
+      );
+  }
+
+function EBooking() {
+    const [date, setDate] = useState(new Date(1598051730000));
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+  const [Name,setName] = React.useState();
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode('date');
+  };
+
+  
+  const saveUsers= () => {
+    alert('Thank You! ' + Name + ' your booking for East hall is confirmed on ' + date);
+}
+ 
+const check= () => {
+    alert('Congradulations! ' + Name + ' East hall is avilable.... for ' + date);
+}
     return (
         <ScrollView>
+        <Icon  name='empire' type='font-awesome' color='green' size="70"/>
+        <Text style={{fontSize: 30,textAlign:"center"}}> East hall Booking</Text>
+        <ScrollView>
             <View style={styles.inputContainer}>
-                <TextInput
-                    style={styles.textInput}
-                    placeholder="Your First name"
-                    maxLength={20}
-                />
+            <TextInput
+                style={styles.textInput}
+                placeholder="Your First Name"
+                maxLength={20}
+                value={Name}
+                onChangeText={(text) =>setName(text)}
+            />
                 <TextInput
                     style={styles.textInput}
                     placeholder="Your Last name"
@@ -385,9 +641,175 @@ function NBooking() {
                     placeholder="Your Email"
                     maxLength={20}
                 />
-            </View>
+                <Text style={styles.textInput} >Hall Type: </Text>
+        <RNPickerSelect
+         
+         placeholder={{label: "Select Event Type..."}} onValueChange={(value) => console.log(value)}
+           items={[
+               { label: 'Wedding', value: 'wedding' },
+               { label: 'Gala Dinner', value: 'birthday' },
+               { label: 'Seminar', value: 'gala_dinner' },
+               { label: 'Corporate', value: 'musical_event' },
+               { label: 'Birthday Party', value: 'musical_event' },
+               
+
+           ]}
+
+       />
+       <Button onPress={showDatepicker} title="Date: " />
+      
+      {show && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode={mode}
+          is24Hour={true}
+          display="default"
+          onChange={onChange}
+        />
+        
+      )}
+      <ScrollView style={{alignContent:'center'}} >
+      <Button style={{backgroundColor:'green'}}      title="Check availaibilty"  onPress={check}  />
+     
+      </ScrollView>
+      <View style={styles.container2}>
+                    
+                    <Button style={styles.quote} title="Book Hall"  onPress={saveUsers}  />
+                </View>
+      
+    </View>
+
+    <Card style={styles.card} >
+                        <Card.Title>Previous Expreiences</Card.Title>
+                        <Card.Divider />
+                        <Text style={{ marginBottom: 10 }}>
+                            <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Some memories from recent hostings</Text> <Text style={{ fontStyle: 'italic', fontSize: 20 }}>Wedding functions</Text>
+                        </Text>
+                        <ScrollView style={{ height: 400, }} >
+                            <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh1.png')}>
+                            </Card.Image>
+                            <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh2.png')}>
+                            </Card.Image>
+                            <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh3.png')}>
+                            </Card.Image>
+                        </ScrollView>
+                    </Card>
             
+        </ScrollView>
+        </ScrollView>
+    );
+
+}
+
+function WBooking() {
+    const [date, setDate] = useState(new Date(1598051730000));
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+  const [Name,setName] = React.useState();
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode('date');
+  };
+
+  
+  const saveUsers= () => {
+    alert('Thank You! ' + Name + ' your booking for West hall is confirmed on ' + date);
+}
+ 
+const check= () => {
+    alert('Congradulations! ' + Name + ' West hall is avilable.... for ' + date);
+}
+    return (
+        <ScrollView>
+        <Icon  name='wikipedia-w' type='font-awesome' color='red' size="70"/>
+        <Text style={{fontSize: 30,textAlign:"center"}}> West hall Booking</Text>
+        <ScrollView>
+            <View style={styles.inputContainer}>
+            <TextInput
+                style={styles.textInput}
+                placeholder="Your First Name"
+                maxLength={20}
+                value={Name}
+                onChangeText={(text) =>setName(text)}
+            />
+                <TextInput
+                    style={styles.textInput}
+                    placeholder="Your Last name"
+                    maxLength={20}
+                />
+                <TextInput
+                    style={styles.textInput}
+                    placeholder="Your Email"
+                    maxLength={20}
+                />
+                <Text style={styles.textInput} >Hall Type: </Text>
+        <RNPickerSelect
+         
+         placeholder={{label: "Select Event Type..."}} onValueChange={(value) => console.log(value)}
+           items={[
+               { label: 'Wedding', value: 'wedding' },
+               { label: 'Reception', value: 'birthday' },
+               { label: 'Engagement', value: 'gala_dinner' },
+               { label: 'Baby Shower', value: 'musical_event' },
+               { label: 'Birthday Party', value: 'musical_event' },
+               
+
+           ]}
+
+       />
+       <Button onPress={showDatepicker} title="Date: " />
+      
+      {show && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode={mode}
+          is24Hour={true}
+          display="default"
+          onChange={onChange}
+        />
+        
+      )}
+      <ScrollView style={{alignContent:'center'}} >
+      <Button style={{backgroundColor:'green'}}      title="Check availaibilty"  onPress={check}  />
+     
+      </ScrollView>
+      <View style={styles.container2}>
+                    
+                    <Button style={styles.quote} title="Book Hall"  onPress={saveUsers}  />
+                </View>
+      
+    </View>
+
+    <Card style={styles.card} >
+                        <Card.Title>Previous Expreiences</Card.Title>
+                        <Card.Divider />
+                        <Text style={{ marginBottom: 10 }}>
+                            <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Some memories from recent hostings</Text> <Text style={{ fontStyle: 'italic', fontSize: 20 }}>Wedding functions</Text>
+                        </Text>
+                        <ScrollView style={{ height: 400, }} >
+                            <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh1.png')}>
+                            </Card.Image>
+                            <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh2.png')}>
+                            </Card.Image>
+                            <Card.Image style={{ marginBottom: 10 }} source={require('../images/sh3.png')}>
+                            </Card.Image>
+                        </ScrollView>
+                    </Card>
             
+        </ScrollView>
         </ScrollView>
     );
 }
@@ -401,6 +823,7 @@ function quoteRequest() {
 
     const saveUsers= () => {
         alert('Thank You! ' + Name + ' for requesting a quote. We will provide your further details as soon as we posibly can.');
+        
     }
     const deleteUsers= () => {
         alert('delete');
@@ -472,6 +895,11 @@ function quoteRequest() {
        />
        </ScrollView>
        
+       <Picker >
+        <Picker.Item label="NoParking" />
+        <Picker.Item label=" Parking"  />
+      </Picker>
+       
         
         
         <ScrollView horizontal={true}>
@@ -491,11 +919,14 @@ function quoteRequest() {
           
             </ScrollView>
             <TextInput
-           
            placeholder="Comments"
-           maxLength={1000}/>
-            <Button style={{padding:30,marginTop:100}}     title="Request a Quote"  onPress={saveUsers}  />
-            
+           maxLength={1000}
+           numberOfLines={3}/>
+           
+            <View style={styles.container2}>
+                    
+            <Button style={styles.quote}     title="Request a Quote"  onPress={saveUsers}  />
+                </View>
             </View>
             <Text h2 style={{margin:60,}}>Let us know How was your Experience!!!!</Text>
             <TextInput
@@ -509,54 +940,9 @@ function quoteRequest() {
                 placeholder="Body"
                 numberOfLines= {20}
             />
-            <Text>Terms and Conditions Apply</Text>
+            <Text style={{fontStyle:'italic'}}>Terms and Conditions Apply</Text>
             <Text>
-            57 packages are looking for funding
-  run `npm fund` for details57 packages are looking for funding
-  run `npm fund` for details
-  57 packages are looking for funding
-  run `npm fund` for details
-  57 packages are looking for funding
-  run `npm fund` for details
-  57 packages are looking for funding
-  run `npm fund` for details
-  57 packages are looking for funding
-  run `npm fund` for details
-  v
-  57 packages are looking for funding
-  run `npm fund` for details7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-  7 packages are looking for funding
-  run `npm fund` for details
-
+            These sample templates are not legal advice and by using them you agree to this disclaimer. The materials below are for informational purposes only and do not constitute advertising, a solicitation or legal advice. You should consult independent legal advice before publishing these agreements. You should read the generated information with care and modify, delete or add all and any areas as necessary. Use of, access to or transmission of such materials and information or any of the links contained herein is not intended to create, and receipt thereof does not constitute formation of, an attorney-client relationship between Shopify and the user or browser. You should not rely upon this information for any purpose without seeking legal advice from a licensed attorney in your state or province. The information contained is provided only as general information and may or may not reflect the most current legal developments; accordingly, information is not promised or guaranteed to be correct or complete. Shopify expressly disclaims all liability in respect to any actions taken or not taken based on any or all of the contents of this website. Further, Shopify does not necessarily endorse and is not responsible for any third-party content that may be accessed through this information.
             </Text>
             
         
@@ -574,9 +960,9 @@ function App() {
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="tabs" component={Tabs} />
                 <Stack.Screen name="North" component={DetailsScreen} />
-                <Stack.Screen name="South" component={SouthHall} />
-                <Stack.Screen name="East" component={EastHall} />
-                <Stack.Screen name="West" component={WestHall} />
+                <Stack.Screen name="South" component={SBooking} />
+                <Stack.Screen name="East" component={EBooking} />
+                <Stack.Screen name="West" component={WBooking} />
                 <Stack.Screen name="Booking North Hall" component={NBooking} />
                 <Stack.Screen name="quote" component={quoteRequest} />
             </Stack.Navigator>
@@ -651,7 +1037,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderStyle: 'solid',
         borderWidth: 1,
-        borderRadius: 50,
+        borderRadius: 10,
         marginBottom: 40,
 
 

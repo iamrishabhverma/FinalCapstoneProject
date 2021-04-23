@@ -23,11 +23,11 @@ const profile = ({navigation}) => {
       <Text style={{fontWeight: 'bold',fontSize:33}}>Get 80% off</Text> <Text  style={{fontStyle:'italic'}}>** Conditions apply</Text>
     </Text>
     <ScrollView style={{height:200,}} >
-  <Card.Image style={{marginBottom:10}} source={require('../images/hall1.png')}>
+  <Card.Image style={{marginBottom:10}} source={require('../images/eh3.png')}>
   </Card.Image>
-  <Card.Image style={{marginBottom:10}} source={require('../images/hall1.png')}>
+  <Card.Image style={{marginBottom:10}} source={require('../images/bh2.png')}>
   </Card.Image>
-  <Card.Image style={{marginBottom:10}} source={require('../images/hall1.png')}>
+  <Card.Image style={{marginBottom:10}} source={require('../images/bh3.png')}>
   </Card.Image>
   </ScrollView>
   <Button
@@ -44,11 +44,11 @@ const profile = ({navigation}) => {
       <Text style={{fontWeight: 'bold',fontSize:33}}>FLAT FOR STAFF</Text> <Text  style={{fontStyle:'italic'}}>** Conditions apply</Text>
     </Text>
     <ScrollView style={{height:200,}} >
-  <Card.Image style={{marginBottom:10}} source={require('../images/hall1.png')}>
+  <Card.Image style={{marginBottom:10}} source={require('../images/eh1.png')}>
   </Card.Image>
-  <Card.Image style={{marginBottom:10}} source={require('../images/hall1.png')}>
+  <Card.Image style={{marginBottom:10}} source={require('../images/sh1.png')}>
   </Card.Image>
-  <Card.Image style={{marginBottom:10}} source={require('../images/hall1.png')}>
+  <Card.Image style={{marginBottom:10}} source={require('../images/bh1.png')}>
   </Card.Image>
   </ScrollView>
   <Button
@@ -64,11 +64,11 @@ const profile = ({navigation}) => {
       <Text style={{fontWeight: 'bold',fontSize:33}}></Text> <Text  style={{fontStyle:'italic'}}>We offer a different Kids section. Enjoy your parties to fullest. Add anything if you want</Text>
     </Text>
     <ScrollView style={{height:200,}} >
-  <Card.Image style={{marginBottom:10}} source={require('../images/hall1.png')}>
+  <Card.Image style={{marginBottom:10}} source={require('../images/wh1.png')}>
   </Card.Image>
-  <Card.Image style={{marginBottom:10}} source={require('../images/hall1.png')}>
+  <Card.Image style={{marginBottom:10}} source={require('../images/sh2.png')}>
   </Card.Image>
-  <Card.Image style={{marginBottom:10}} source={require('../images/hall1.png')}>
+  <Card.Image style={{marginBottom:10}} source={require('../images/wh2.png')}>
   </Card.Image>
   </ScrollView>
   
